@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppColors{
+class AppColors {
   static Color primaryColor = const Color.fromRGBO(162, 29, 19, 1);
   static Color primaryAccent = const Color.fromRGBO(120, 14, 14, 1);
   static Color secondaryColor = const Color.fromRGBO(45, 45, 45, 1);
@@ -11,53 +11,42 @@ class AppColors{
   static Color highlightColor = const Color.fromRGBO(212, 172, 13, 1);
 }
 
-
 ThemeData primaryTheme = ThemeData(
-
   //seed
   colorScheme: ColorScheme.fromSeed(
-    seedColor: AppColors.primaryColor, 
-    primary: AppColors.primaryColor
-    ),
-
+      seedColor: AppColors.primaryColor, primary: AppColors.primaryColor),
 
   //Scaffold Color
   scaffoldBackgroundColor: AppColors.secondaryAccent,
-
-
   appBarTheme: AppBarTheme(
-    backgroundColor: AppColors.secondaryColor,
-    foregroundColor: AppColors.textColor,
-    surfaceTintColor: Colors.transparent,
-    centerTitle: true
-  ),
-
+      backgroundColor: AppColors.secondaryColor,
+      foregroundColor: AppColors.textColor,
+      surfaceTintColor: Colors.transparent,
+      centerTitle: true),
   textTheme: TextTheme(
-    bodyMedium: TextStyle(
-      color: AppColors.textColor,
-      fontSize: 16,
-      letterSpacing: 1 
-    ),
+    bodyMedium:
+        TextStyle(color: AppColors.textColor, fontSize: 16, letterSpacing: 1),
     headlineMedium: TextStyle(
-      color: AppColors.titleColor,
-      fontSize: 16,
-      letterSpacing: 1,
-      fontWeight: FontWeight.bold
-    ),
+        color: AppColors.titleColor,
+        fontSize: 16,
+        letterSpacing: 1,
+        fontWeight: FontWeight.bold),
     titleMedium: TextStyle(
-      color: AppColors.titleColor,
-      fontSize: 18,
-      letterSpacing: 2,
-      fontWeight: FontWeight.bold
-    ),
+        color: AppColors.titleColor,
+        fontSize: 18,
+        letterSpacing: 2,
+        fontWeight: FontWeight.bold),
   ),
-
-
   cardTheme: CardTheme(
-    color: AppColors.secondaryColor.withOpacity(0.5),
-    surfaceTintColor: Colors.transparent,
-    shape: const RoundedRectangleBorder(),
-    margin: const EdgeInsets.only(bottom: 16),
-    shadowColor: Colors.transparent
-  )
+      color: AppColors.secondaryColor.withOpacity(0.5),
+      surfaceTintColor: Colors.transparent,
+      shape: const RoundedRectangleBorder(),
+      margin: const EdgeInsets.only(bottom: 16),
+      shadowColor: Colors.transparent),
+  inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: AppColors.secondaryColor.withOpacity(0.5),
+      border: InputBorder.none,
+      labelStyle: TextStyle(color: AppColors.textColor),
+      prefixIconColor: AppColors.textColor),
 );
