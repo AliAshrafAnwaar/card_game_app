@@ -36,13 +36,14 @@ class VocationCard extends StatelessWidget {
               ),
               const SizedBox(width: 10),
               Expanded(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  StyledHeadline(vocation.title),
-                  StyledText(vocation.description)
-                ],
-              ))
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    StyledHeadline(vocation.title),
+                    StyledText(vocation.description)
+                  ],
+                ),
+              )
             ],
           ),
         ),

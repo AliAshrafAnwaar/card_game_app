@@ -57,7 +57,6 @@ class _CreateState extends State<Create> {
   }
 
   // select handler
-
   bool selectUpdate(Vocation vocation) {
     return selectedVocation == vocation;
   }
@@ -69,9 +68,9 @@ class _CreateState extends State<Create> {
         title: const StyledTitle('Character Creation'),
         centerTitle: true,
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
           child: Column(
             children: [
               Center(
@@ -138,17 +137,29 @@ class _CreateState extends State<Create> {
                     Vocation.raider,
                   )),
               VocationCard(
-                  onTap: updateVocation,
-                  vocation: Vocation.wizard,
-                  selected: selectUpdate(
-                    Vocation.wizard,
-                  )),
+                onTap: updateVocation,
+                vocation: Vocation.wizard,
+                selected: selectUpdate(
+                  Vocation.wizard,
+                ),
+              ),
+
+              Center(
+                child: Icon(Icons.code, color: AppColors.primaryColor),
+              ),
+              const Center(
+                child: StyledHeadline('Good Luck.'),
+              ),
+              const Center(
+                child: StyledText('And enjoy the journey....'),
+              ),
+              const SizedBox(height: 30),
               Center(
                 child: StyledButton(
                   onPressed: handleSubmit,
                   child: const StyledHeadline("Create Character"),
                 ),
-              )
+              ),
             ],
           ),
         ),
