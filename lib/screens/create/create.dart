@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rpg/model/character.dart';
 import 'package:flutter_rpg/model/vocation.dart';
 import 'package:flutter_rpg/screens/create/vocation_card.dart';
+import 'package:flutter_rpg/screens/home/home.dart';
 import 'package:flutter_rpg/shared/styled_button.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
@@ -42,18 +43,55 @@ class _CreateState extends State<Create> {
   void handleSubmit() {
     if (_nameController.text.trim().isEmpty) {
       //show error
-      return;
+
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const StyledHeadline('Misssing Character Name'),
+            content: const StyledText(
+                'Every good RPG character needs a great name...'),
+            actions: [
+              StyledButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const StyledHeadline('close'))
+            ],
+            actionsAlignment: MainAxisAlignment.center,
+          );
+        },
+      );
     } else if (_sloganController.text.trim().isEmpty) {
       //show error
-      return;
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const StyledHeadline('Misssing Character Slogan'),
+            content: const StyledText(
+                'Every good RPG character needs a great slogan...'),
+            actions: [
+              StyledButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const StyledHeadline('close'))
+            ],
+            actionsAlignment: MainAxisAlignment.center,
+          );
+        },
+      );
+    } else {
+      characters.add(
+        Character(
+            name: _nameController.text,
+            slogan: _sloganController.text,
+            vocation: selectedVocation,
+            id: uuid.v4()),
+      );
+      Navigator.push(context, MaterialPageRoute(builder: (_) => Home()));
     }
-    characters.add(
-      Character(
-          name: _nameController.text,
-          slogan: _sloganController.text,
-          vocation: selectedVocation,
-          id: uuid.v4()),
-    );
   }
 
   // select handler
