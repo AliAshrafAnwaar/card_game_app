@@ -53,4 +53,8 @@ ThemeData primaryTheme = ThemeData(
     surfaceTintColor: Colors.transparent,
     backgroundColor: AppColors.secondaryAccent,
   ),
+  snackBarTheme: SnackBarThemeData(
+    showCloseIcon: true,
+    backgroundColor: AppColors.secondaryColor,
+  ),
 );
