@@ -41,7 +41,7 @@ class Character with Stats {
       'vocation': vocation.toString(),
       'skills': skills.map((skill) => skill.id).toList(),
       'stats': statsAsMap,
-      'points' : points
+      'points': points
     };
   }
 
@@ -74,10 +74,9 @@ class Character with Stats {
     }
 
     // update stats
-    Stats state = ;
-    Map<String, int> stats = data['stats'];
+    character.setStats(points: data['points'], stats: data['stats']);
 
-    return;
+    return character;
   }
 }
 

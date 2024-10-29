@@ -62,4 +62,13 @@ mixin Stats {
       _points++;
     }
   }
+
+  void setStats({required int points, required Map<String, dynamic> stats}) {
+    _points = points;
+
+    _health = stats['health'];
+    _defense = stats['defense'];
+    _skill = stats['skill'];
+    _attack = stats['attack'];
+  }
 }
