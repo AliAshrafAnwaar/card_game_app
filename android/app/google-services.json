@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "60583016298",
+    "project_id": "card-game-978a0",
+    "storage_bucket": "card-game-978a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60583016298:android:76dab0acca3745bd6b1713",
+        "android_client_info": {
+          "package_name": "com.example.flutter_rpg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9_-Tz9bFZZa_r1SOkRyUniNYu8enQi4s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
