@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_rpg/model/skills.dart';
 import 'package:flutter_rpg/model/stats.dart';
 import 'package:flutter_rpg/model/vocation.dart';
@@ -48,7 +47,7 @@ class Character with Stats {
   // from firestore
   factory Character.fromFirestore(
     DocumentSnapshot<Map<String, dynamic>> snapshot,
-    SnapshotOptions? Options,
+    SnapshotOptions? options,
   ) {
     // get data from snapshot
     final data = snapshot.data()!;
