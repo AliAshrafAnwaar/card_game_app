@@ -15,7 +15,24 @@ class FirestoreService {
 
   // get characters once
 
+  static Future<QuerySnapshot<Character>> getCharactersOnce() async {
+    return await ref.get();
+  }
+
   // update a character
 
+  static Future<void> updateCharacter(Character character) async {
+    await ref.doc(character.id).update({
+      'stats': character.statsAsMap,
+      'points': character.points,
+      'isFav': character.isFav,
+      'skills': character.skills.map((s) => s.id).toList()
+    });
+  }
+
   // delete a character
+
+  static Future<void> deleteCharacter(Character character) async {
+    await ref.doc(character.id).delete();
+  }
 }

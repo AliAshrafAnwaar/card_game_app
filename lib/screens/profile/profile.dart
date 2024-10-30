@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rpg/model/character.dart';
+import 'package:flutter_rpg/screens/home/character_card.dart';
 import 'package:flutter_rpg/screens/profile/skill_list.dart';
 import 'package:flutter_rpg/screens/profile/stats_table.dart';
+import 'package:flutter_rpg/services/character_store.dart';
 import 'package:flutter_rpg/shared/styled_button.dart';
 import 'package:flutter_rpg/shared/styled_text.dart';
 import 'package:flutter_rpg/theme.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatelessWidget {
   const Profile({
@@ -17,7 +20,24 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: StyledTitle(character.name),
+        title: Row(
+          children: [
+            StyledTitle(character.name),
+            const Expanded(child: SizedBox()),
+            TextButton(
+                onPressed: () {
+                  Provider.of<CharacterStore>(context, listen: false)
+                      .removeCharacter(character);
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "Delete",
+                  style: TextStyle(
+                      color: AppColors.primaryColor,
+                      fontWeight: FontWeight.bold),
+                ))
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -95,6 +115,8 @@ class Profile extends StatelessWidget {
             //save button
             StyledButton(
                 onPressed: () {
+                  Provider.of<CharacterStore>(context, listen: false)
+                      .saveCharacter(character);
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(
                       duration: Duration(seconds: 2),
