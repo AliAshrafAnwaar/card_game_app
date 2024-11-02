@@ -22,8 +22,7 @@ class Profile extends StatelessWidget {
       appBar: AppBar(
         title: Row(
           children: [
-            StyledTitle(character.name),
-            const Expanded(child: SizedBox()),
+            Expanded(child: StyledTitle(character.name, num: 3)),
             TextButton(
                 onPressed: () {
                   Provider.of<CharacterStore>(context, listen: false)
